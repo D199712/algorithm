@@ -13,6 +13,8 @@ public class InsertionTest {
         //原始数据
         Integer[] a = {4,6,8,7,9,2,10,1};
         Insertion.sort(a);
+        Integer[] b = {10,9,8,7,6,5,4,3};
+        Insertion.sort(b);
         System.out.println(Arrays.toString(a));
     }
 }

@@ -21,7 +21,7 @@ public class Insertion {
      * @param array
      */
     public static void sort(Comparable[] array) {
-
+        int num = 0;
         for (int i =1; i<array.length;i++){
 
             for (int j=i; j>0;j--){
@@ -30,8 +30,10 @@ public class Insertion {
                 }else {
                     break;
                 }
+                num++;
             }
         }
+        System.out.println("num"+num);
     }
 
     /**
