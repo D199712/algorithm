@@ -3,8 +3,9 @@ package cn.itcast.algorithm.sort;
 /**
  * @Author DJ
  * @Description //归并排序
- * @Date $time$ $date$
- * @return $return$
+ * 原理：1.尽可能将一组数据拆分成两个元素相等的子组，并对每一个子组进行拆分，直到拆分后的每个子组个数为1为止
+ * 2.将相邻的两个子组合并成一个有序的大组
+ * 3.不断重复步骤2，最终只有一个组为止
  */
 public class Merge {
 
@@ -24,12 +25,16 @@ public class Merge {
      * @param hi
      */
     private static void sort(Comparable[] a,int lo,int hi){
+        //安全性校验
         if (hi <= lo){
             return;
         }
 
         int mid = lo + (hi-lo)/2;
-
+        System.out.println("#####分####");
+        System.out.println("mid:"+mid);
+        System.out.println("lo:"+lo);
+        System.out.println("hi:"+hi);
         //对lo到mid之间的元素进行排序；
         sort(a,lo,mid);
         //对mid+1到hi之间的元素进行排序；
@@ -46,10 +51,11 @@ public class Merge {
      * @param hi
      */
     private static void merge(Comparable[] a,int lo,int mid,int hi){
+        System.out.println("#####治####");
         //定义三个指针
-        int i=lo;
-        int p1=lo;
-        int p2=mid+1;
+        int i=lo;//辅助数组指针
+        int p1=lo;//左子组指针
+        int p2=mid+1;//右子组指针
         //遍历，移动p1指针和p2指针，比较对应索引处的值，找出最小的那个，放到辅助数组的对应索引处
         while (p1<=mid && p2<=hi){
             //比较对应索引处的值
