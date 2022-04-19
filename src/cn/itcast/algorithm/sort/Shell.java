@@ -5,6 +5,7 @@ package cn.itcast.algorithm.sort;
  * 排序原理：1.选择一个增长量h，按增长量h作为数据分组的依据，对数据进行分组
  * 2.对分好组的每一组数据完成插入排序
  * 3.减小增长量，最小减为一，重复第二步操作
+ * 稳定性：不稳定
  */
 public class Shell {
 

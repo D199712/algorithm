@@ -9,6 +9,7 @@ import java.util.Arrays;
  * 2. 对每一对相邻元素做同样的工作，从开始第一对元素到结尾的最后一对元素。最终最后位置的元素就是最大
  * 值
  * 时间复杂度：O(N^2)
+ * 稳定性：稳定
  */
 public class BubbleSort1 {
     /**

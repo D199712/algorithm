@@ -8,6 +8,7 @@ package cn.itcast.algorithm.sort;
  * 3.不断重复步骤2，最终只有一个组为止
  *
  * 时间复杂度：O(nlogn)
+ * 稳定性：稳定
  */
 public class Merge {
 

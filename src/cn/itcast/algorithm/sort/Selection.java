@@ -11,6 +11,7 @@ package cn.itcast.algorithm.sort;
  *  2.交换第一个索引处和最小值所在的索引处的值
  *
  *  时间复杂度：O(N^2)
+ *  稳定性：不稳定
  */
 public class Selection {
 

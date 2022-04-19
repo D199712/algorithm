@@ -13,6 +13,7 @@ package cn.itcast.algorithm.sort;
  *扑克牌
  * 核心思想：无序插入有序
  * 时间复杂度：O(N^2)
+ * 稳定性：稳定
  */
 public class Insertion {
 
