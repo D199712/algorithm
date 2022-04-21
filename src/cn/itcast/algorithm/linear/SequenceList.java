@@ -1,10 +1,12 @@
 package cn.itcast.algorithm.linear;
 
+import java.util.Iterator;
+
 /**
  * 顺序表
  * @param <T>
  */
-public class SequenceList<T> {
+public class SequenceList<T> implements Iterable<T>{
     //存储元素的数组
     private T[] eles;
     //记录当前顺序表中的元素个数
@@ -74,5 +76,10 @@ public class SequenceList<T> {
             }
         }
         return -1;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }
