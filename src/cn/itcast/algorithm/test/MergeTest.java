@@ -16,5 +16,6 @@ public class MergeTest {
         Integer[] arr = {8, 4, 5, 7, 1, 3, 6, 2,9};
         Merge.sort(arr);
         System.out.println(Arrays.toString(arr));
+
     }
 }

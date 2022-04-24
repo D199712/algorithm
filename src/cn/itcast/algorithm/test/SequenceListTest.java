@@ -10,12 +10,17 @@ import cn.itcast.algorithm.linear.SequenceList;
 public class SequenceListTest {
 
     public static void main(String[] args) {
-        SequenceList<String> sl = new SequenceList<>(10);
+        SequenceList<String> sl = new SequenceList<>(5);
         sl.insert("盖伦");
         sl.insert("提莫");
         sl.insert("瑞兹");
         sl.insert(1,"艾希");
-
+        sl.insert(1,"卡莎");
+        sl.insert(1,"娜美");
+        for (String s: sl){
+            System.out.println(s);
+        }
+        System.out.println("----------------------------------");
         String result = sl.get(1);
         System.out.println("获取索引1处结果："+result);
         String removeResult = sl.remove(0);
