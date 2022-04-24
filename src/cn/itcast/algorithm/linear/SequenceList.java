@@ -36,6 +36,9 @@ public class SequenceList<T> implements Iterable<T>{
 
     //获取指定位置的元素
     public T get(int i){
+        if (i<0 || i>=N){
+            throw new RuntimeException("当前元素不存在！");
+        }
         return eles[i];
     }
 
@@ -47,6 +50,9 @@ public class SequenceList<T> implements Iterable<T>{
 
     //在i索引处插入元素t
     public void insert(int i,T t){
+        if (i<0 || i>=N){
+            throw new RuntimeException("插入位置不合适！");
+        }
         if (N==eles.length){
             resize(2*eles.length);
         }
@@ -62,6 +68,9 @@ public class SequenceList<T> implements Iterable<T>{
 
     //删除并返回线性表中第i个数据元素
     public T remove(int i){
+        if (i<0 || i>=N){
+            throw new RuntimeException("要删除的元素不存在！");
+        }
         //记录索引i处的值
         T current = eles[i];
         //索引i后的元素依次向前移动一位
@@ -71,6 +80,7 @@ public class SequenceList<T> implements Iterable<T>{
         //元素个数-1
         N--;
 
+        //当元素不足数组大小的1/4,则重置数组大小
         if (N<eles.length/4){
             resize(eles.length/2);
         }
@@ -79,6 +89,9 @@ public class SequenceList<T> implements Iterable<T>{
 
     //返回线性表中首次出现的指定的数据元素的位序号，若不存在，则返回-1
     public int indexOf(T t){
+        if(t==null){
+            throw new RuntimeException("查找的元素不合法");
+        }
         for (int i =0;i <N;i++){
             if (eles[i].equals(t)){
                 return i;
