@@ -1,9 +1,21 @@
 package cn.itcast.algorithm.linear;
 
+import javax.xml.soap.Node;
+
 /**
  * 单向链表
  */
 public class LinkList {
+
+    //记录头节点
+    private Node head;
+    //记录链表长度
+    private int N;
+
+    private LinkList(){
+        //初始化头结点
+
+    }
 
     //空置线性表
     public void clear(){
