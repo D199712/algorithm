@@ -32,7 +32,7 @@ public class LinkList {
         return -1;
     }
 
-    //读取并返回线性表中第i个元素的值
+    /**读取并返回线性表中第i个元素的值
     public T get(int i){
         return T;
     }
@@ -56,6 +56,6 @@ public class LinkList {
     public int indexOf(T t){
         return -1;
     }
-
+**/
 
 }
