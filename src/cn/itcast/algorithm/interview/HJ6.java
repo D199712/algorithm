@@ -21,8 +21,9 @@ import java.util.Scanner;
  输出：
  2 2 3 3 5
 
- 核心思路： 正如我们判断数 num 是不是质数时，没必要从 2 一直尝试到 num 一样，此题中的大循环也大可不必写一个到 num 的循环，写到 根号num s
+ 核心思路： 1.正如我们判断数 num 是不是质数时，没必要从 2 一直尝试到 num 一样，此题中的大循环也大可不必写一个到 num 的循环，写到 根号num
  即可，如果此时数字还没有除数，则可判定其本身是一个质数，没有再除下去的必要了，直接打印其本身即可：
+ 2.Math.sqrt()函数可以开根号
  **/
 public class HJ6 {
     public static void main(String[] args) {
@@ -30,6 +31,7 @@ public class HJ6 {
         Scanner sc = new Scanner(System.in);
         long input = sc.nextLong();
         long s = (long)(Math.sqrt(input));
+        
         for(int i = 2; i <= s; i++){
             if(input % i == 0){
 
