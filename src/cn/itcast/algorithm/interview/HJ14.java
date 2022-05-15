@@ -36,6 +36,7 @@ import java.util.Scanner;
  two
  up
 
+ 核心思路：Arrays.sort()方法排序
  */
 public class HJ14 {
 
