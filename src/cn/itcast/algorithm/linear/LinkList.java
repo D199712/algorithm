@@ -1,10 +1,12 @@
 package cn.itcast.algorithm.linear;
 
 
+import java.util.Iterator;
+
 /**
  * 单向链表
  */
-public class LinkList<T> {
+public class LinkList<T> implements Iterable<T>{
 
     private class Node{
         //存储数据
@@ -23,7 +25,7 @@ public class LinkList<T> {
     //记录链表长度
     private int N;
 
-    private LinkList(){
+    public LinkList(){
         //初始化头结点
         this.head = new Node(null,null);
         //初始化元素个数
@@ -90,7 +92,7 @@ public class LinkList<T> {
     }
 
     //删除并返回线性表中第i个数据元素
-    public T remove(int i,T t){
+    public T remove(int i){
         //找到i位置处前一个节点
         Node iPre = head;
         for (int index = 0; index <= i-1; index++){
@@ -120,5 +122,25 @@ public class LinkList<T> {
         return -1;
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new Literator();
+    }
 
+    private class Literator implements Iterator{
+        private Node n;
+        public Literator(){
+            this.n = head;
+        }
+        @Override
+        public boolean hasNext() {
+            return n.next != null;
+        }
+
+        @Override
+        public Object next() {
+            n = n.next;
+            return n.item;
+        }
+    }
 }
