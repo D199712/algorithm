@@ -29,6 +29,10 @@ import java.util.regex.Pattern;
  * NG
  * NG
  * OK
+ *
+ * 核心
+ * 1.包括大小写字母.数字.其它符号,以上四种至少三种--使用正则处理 Pattern.compile() ,Pattern.matcher(),Pattern.find()
+ * 2.检查不能有长度大于2的包含公共元素的子串重复--String.substring(),String.contains(),递归
  */
 public class HJ20 {
     public static void main(String[] args) throws IOException {
@@ -42,6 +46,10 @@ public class HJ20 {
                 continue;
             }
             if (isMatch(target)){
+                System.out.println("NG");
+                continue;
+            }
+            if (getString(target,0,3)){
                 System.out.println("NG");
                 continue;
             }
@@ -77,5 +85,16 @@ public class HJ20 {
     }
 
     //检查不能有长度大于2的包含公共元素的子串重复 （注：其他符号不含空格或换行）
+    public static boolean getString(String target,int l,int r) {
+        if (r > target.length()) {
+            return false;
+        }
 
+        if (target.substring(r).contains(target.substring(l, r))) {
+            return true;
+        } else {
+            //递归调用，判断从l到r的字符串有无重复值
+            return getString(target, l + 1, r + 1);
+        }
+    }
 }
