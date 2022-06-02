@@ -1,9 +1,12 @@
 package cn.itcast.algorithm.linear;
 
+import java.util.Iterator;
+
 /**
  * 双向链表
  */
-public class TwoWayLinkList<T> {
+public class TwoWayLinkList<T> implements Iterable<T>{
+
 
     //记录首节点
     private Node head;
@@ -83,6 +86,7 @@ public class TwoWayLinkList<T> {
 
     //在线性表第i个元素前插入一个值为t的元素
     public void insert(int i,T t){
+        if (i<0 || i>=N){ throw new RuntimeException("位置不合法"); }
         //找到i位置前一个节点
         Node pre = head;
         for (int index = 0;index < i;i++){
@@ -143,6 +147,40 @@ public class TwoWayLinkList<T> {
             }
         }
         return -1;
+    }
+
+    //获取第一个元素
+    public T getFirst(){
+        if (isEmpty()){
+            return null;
+        }
+        return head.next.item;
+    }
+
+    //获得最后一个元素
+    public T getLast(){
+        if (isEmpty()){
+            return null;
+        }
+        return last.item;
+    }
+    @Override
+    public Iterator iterator() {
+        return new TIterator();
+    }
+
+    private class TIterator implements Iterator{
+        private Node n = head;
+        @Override
+        public boolean hasNext() {
+            return n.next != null;
+        }
+
+        @Override
+        public Object next() {
+            n = n.next;
+            return n.item;
+        }
     }
 
 }
