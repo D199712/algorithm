@@ -89,7 +89,7 @@ public class TwoWayLinkList<T> implements Iterable<T>{
         if (i<0 || i>=N){ throw new RuntimeException("位置不合法"); }
         //找到i位置前一个节点
         Node pre = head;
-        for (int index = 0;index < i;i++){
+        for (int index = 0;index < i;index++){
             pre = pre.next;
         }
         //找到i位置节点
@@ -97,9 +97,10 @@ public class TwoWayLinkList<T> implements Iterable<T>{
         //创建新节点
         Node newNode = new Node(t,pre,curr);
         //让i位置前一个节点的下个节点变为新节点
+        curr.pre = newNode;
         pre.next = newNode;
         //让i位置的前一个节点变为新节点
-        curr.pre = newNode;
+
         //元素个数+1
         N++;
     }
