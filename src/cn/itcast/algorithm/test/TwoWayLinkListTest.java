@@ -17,7 +17,7 @@ public class TwoWayLinkListTest {
         sl.insert("瑞兹");
         sl.insert(1,"艾希");
         sl.insert(1,"卡莎");
-        sl.insert(5,"娜美");
+        sl.insert(4,"娜美");
         sl.insert(0,"兰博");
         for (String s: sl){
             System.out.println(s);
