@@ -29,17 +29,21 @@ public class Shell {
              * 当h=1,数组中部分元素已经变成有序数组
              **/
             for (int i =h;i<N;i++){
+                System.out.println("---------------------");
+                System.out.println("i:"+i);
                 //a[i]就是待插入元素
                 //把a[i]插入到a[i-h],a[i-2h],a[i-3h]...序列中
                 for (int j=i;j>=h;j-=h){
                     /**a[j]就是待插入元素，依次和a[j-h],a[j-2h],a[j-3h]比较
                     如果a[j]小就交换位置，如果不小于，则无需交换位置**/
+                    System.out.println("j:"+j);
+                    System.out.println("h:"+h);
                     if (greater(a[j-h],a[j])){
                         exch(a,j-h,j);
                     }else {
                         break;
                     }
-                }
+                }//end of for
 
             }
 
