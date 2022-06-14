@@ -1,5 +1,9 @@
 package cn.itcast.algorithm.interview;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * 描述
  * 对字符串中的所有单词进行倒排。
@@ -32,5 +36,14 @@ package cn.itcast.algorithm.interview;
  * l r gi y bo
  */
 public class HJ31 {
-
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String target = bf.readLine();
+        String[] result = target.split("[^A-Za-z]");
+        StringBuilder sb = new StringBuilder();
+        for (int i = result.length-1; i >= 0; i--){
+            sb.append(result[i]).append(" ");
+        }
+        System.out.println(sb);
+    }
 }
