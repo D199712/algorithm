@@ -1,5 +1,9 @@
 package cn.itcast.algorithm.interview;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**HJ56 完全数计算
  * 描述
  * 完全数（Perfect number），又称完美数或完备数，是一些特殊的自然数。
@@ -27,4 +31,26 @@ package cn.itcast.algorithm.interview;
  * 3
  */
 public class HJ56 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(bf.readLine());
+        int perfectNumber = 0;
+        for(int j = 1; j <= n; j++){
+            if (isPerfectNumber(j)){
+                perfectNumber++;
+            }
+        }
+        System.out.println(perfectNumber);
+
+    }
+
+    public static boolean isPerfectNumber(int target){
+        int divisorSum = 0;
+        for(int i = 1; i <= target/2; i++){
+            if(target%i == 0){
+                divisorSum += i;
+            }
+        }
+        return target == divisorSum;
+    }
 }
