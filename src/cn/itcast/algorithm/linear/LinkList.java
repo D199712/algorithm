@@ -143,4 +143,28 @@ public class LinkList<T> implements Iterable<T>{
             return n.item;
         }
     }
+
+    public void reverse(){
+        if(N==0){
+            //空链表不需要反转
+            return;
+        }
+        reverse(head.next);
+    }
+
+    public Node reverse(Node curr){
+        //当到达最后一个元素
+        if (curr.next == null){
+            //反转后，头指针指向原节点最后一个元素
+            head.next = curr;
+            return curr;
+        }
+        //当前节点的上一个节点
+        Node pre = reverse(curr.next);
+        pre.next = curr;
+        //当前节点下一个结点设为null
+        curr.next = null;
+        //返回当前节点
+        return curr;
+    }
 }
