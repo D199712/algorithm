@@ -122,6 +122,15 @@ public class LinkList<T> implements Iterable<T>{
         return -1;
     }
 
+    //根据参数n返回对应结点
+    public Node returnNodeByIndex(int n){
+        Node node = head;
+        for (int index = 0; index < n; index++){
+            node = node.next;
+        }
+        return node;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Literator();
@@ -149,22 +158,56 @@ public class LinkList<T> implements Iterable<T>{
             //空链表不需要反转
             return;
         }
-        reverse(head.next);
+        reverse1(head.next);
     }
 
-    public Node reverse(Node curr){
+    //输入第一个节点，将链表反转
+    public Node reverse1(Node curr){
         //当到达最后一个元素
         if (curr.next == null){
             //反转后，头指针指向原节点最后一个元素
             head.next = curr;
             return curr;
         }
-        //当前节点的上一个节点
-        Node pre = reverse(curr.next);
+        //返回当前节点的上一个节点
+        Node pre = reverse1(curr.next);
         pre.next = curr;
         //当前节点下一个结点设为null
         curr.next = null;
         //返回当前节点
         return curr;
+    }
+
+    //输入一个节点head，将以head节点为起点的链表反转
+    public Node reverse2(Node head){
+        //当前节点下一个节点为空，返回当前节点
+        if (head.next == null){
+            return head;
+        }
+        /**
+         * 1.不要进入递归
+         *2.明确递归函数的定义:输入一个节点head，将以head为起点的链表反转，并返回反转后的链表的头结点
+         */
+        Node last = reverse2(head.next);
+        //将头结点的下一个节点的下一个节点指向自己
+        head.next.next = head;
+        //将头结点下一个节点置空
+        head.next = null;
+        //返回反转后的链表的头结点
+        return last;
+    }
+
+    //后驱节点
+    Node successor = null;
+
+    public Node reverseN(Node head,int n){
+        if(n == 1){
+            successor = head.next;
+            return head;
+        }
+        Node last = reverseN(head,n-1);
+        head.next.next = head;
+        head.next = successor;
+        return last;
     }
 }

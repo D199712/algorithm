@@ -15,15 +15,17 @@ public class LinkListTest1 {
         sl.insert("盖伦");
         sl.insert("提莫");
         sl.insert("瑞兹");
-        sl.insert(1,"艾希");
-        sl.insert(1,"卡莎");
-        sl.insert(5,"娜美");
-        sl.insert(0,"兰博");
+        sl.insert("艾希");
         for (String s: sl){
             System.out.println(s);
         }
         System.out.println("----------------------------------");
         sl.reverse();
+        for (String s: sl){
+            System.out.println(s);
+        }
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        sl.reverseN(sl.returnNodeByIndex(3),2);
         for (String s: sl){
             System.out.println(s);
         }
