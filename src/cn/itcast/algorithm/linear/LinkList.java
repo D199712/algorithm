@@ -178,7 +178,7 @@ public class LinkList<T> implements Iterable<T>{
         return curr;
     }
 
-    //输入一个节点head，将以head节点为起点的链表反转
+    //输入一个节点head，将以head节点为起点的链表反转,并返回反转之后的头节点
     public Node reverse2(Node head){
         //当前节点下一个节点为空，返回当前节点
         if (head.next == null){
@@ -197,9 +197,11 @@ public class LinkList<T> implements Iterable<T>{
         return last;
     }
 
-    //后驱节点
+    /**
+     *反转以 head 为起点的 n 个节点，返回反转后的头节点
+     */
+    //此时反转之后head节点不一定是最后一个节点了，记录后驱节点（第n+1）个节点，反转后将head连上
     Node successor = null;
-
     public Node reverseN(Node head,int n){
         if(n == 1){
             successor = head.next;
@@ -207,7 +209,20 @@ public class LinkList<T> implements Iterable<T>{
         }
         Node last = reverseN(head,n-1);
         head.next.next = head;
+        //将反转后的head节点与后继节点连接
         head.next = successor;
         return last;
     }
+
+    /**
+     * 反转链表的一部分m-n节点,返回反转后的头节点
+     */
+    public Node reverseBetween(Node head,int m,int n){
+        if (m == 1){
+            return reverseN(head,n);
+        }
+        head.next = reverseBetween(head.next,m-1,n-1);
+        return head;
+    }
+
 }
