@@ -58,14 +58,13 @@ public class HJ51 {
             System.out.println(target.m_nKey);
         }
     }
-}
+    private static class ListNode{
+        int m_nKey;
+        ListNode m_pNext;
 
-class ListNode{
-    int m_nKey;
-    ListNode m_pNext;
-
-    public ListNode(int m_nKey){
-        this.m_nKey = m_nKey;
-        this.m_pNext = null;
+        public ListNode(int m_nKey){
+            this.m_nKey = m_nKey;
+            this.m_pNext = null;
+        }
     }
 }

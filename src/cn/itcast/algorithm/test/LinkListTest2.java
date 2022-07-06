@@ -3,7 +3,7 @@ package cn.itcast.algorithm.test;
 /**
  * 快慢指针
  */
-public class LinkedListTest2 {
+public class LinkListTest2 {
     public static void main(String[] args) {
         Node<String> first = new Node<String>("a",null);
         Node<String> second = new Node<String>("b",null);
