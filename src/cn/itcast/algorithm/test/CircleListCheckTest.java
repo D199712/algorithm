@@ -3,7 +3,7 @@ package cn.itcast.algorithm.test;
 /**
  * 单向链表是否有环问题
  */
-public class CircleLitCheckTest {
+public class CircleListCheckTest {
 
     public static void main(String[] args) {
         Node<String> first = new Node<String>("a",null);
