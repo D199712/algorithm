@@ -3,7 +3,9 @@ package cn.itcast.algorithm.interview;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * @Author DJ
@@ -32,6 +34,7 @@ public class HJ23 {
         for(char c : chars){
             map.put(c,map.getOrDefault(c,0)+1);
         }
+
         //2.找到出现最少的次数
         int min = Integer.MAX_VALUE;
         for(int times : map.values()){
