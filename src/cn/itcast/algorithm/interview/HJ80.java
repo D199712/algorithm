@@ -1,5 +1,15 @@
 package cn.itcast.algorithm.interview;
 
+import sun.reflect.generics.tree.Tree;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeSet;
+
 /**
  * 描述
  * 题目标题：
@@ -26,5 +36,27 @@ package cn.itcast.algorithm.interview;
  * -101235
  */
 public class HJ80 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int firstArrLen = Integer.parseInt(bf.readLine());
+        String[] firstArr = bf.readLine().split(" ");
+        int secondArrLen = Integer.parseInt(bf.readLine());
+        String[] secondArr = bf.readLine().split(" ");
+
+        ArrayList<Integer> unionArr = new ArrayList<>();
+
+        for (int i = 0; i < firstArrLen; i++){
+            unionArr.add(Integer.parseInt(firstArr[i]));
+        }
+        for (int i = firstArrLen; i < firstArrLen+secondArrLen; i++){
+            unionArr.add(Integer.parseInt(secondArr[i-firstArrLen]));
+        }
+
+        TreeSet<Integer> treeSet = new TreeSet<>(unionArr);
+        Iterator i = treeSet.iterator();
+        while (i.hasNext()){
+            System.out.print(i.next());
+        }
+    }
 
 }

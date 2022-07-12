@@ -46,4 +46,13 @@ public class BracketMatch {
         }
 
     }
+
+    /**
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isMatch2(String str){
+        return false;
+    }
 }
