@@ -86,6 +86,6 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
             this.left = left;
             this.right = right;
             }
-    }
+
     }
 }
