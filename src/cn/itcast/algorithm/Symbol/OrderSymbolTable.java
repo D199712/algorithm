@@ -27,7 +27,7 @@ public class OrderSymbolTable<Key extends Comparable,Value> {
         Node curr = head.next;
         Node pre = head;
         while (curr != null&&key.compareTo(curr.key) > 0){
-            //变换当前节点和前一个节点
+            //变换当前节点和前一个节点,直至pre < key < curr,
             pre = curr;
             curr = curr.next;
         }
