@@ -36,7 +36,7 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
             //如果key小于X节点的键，则继续找X节点左子树
             x.left = put(x.left,key,value);
         }else {
-            //如果key等于x节点的键，则替换x节点的value
+            //如果key等于x节点的键，则替换x节点的值为value
             x.value = value;
         }
         return null;
@@ -118,7 +118,7 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
                 }
             }
 
-            //3.3让被删除结点的左子树称为最小结点minNode的左子树，让被删除结点的右子树称为最小结点 minNode的右子树
+            //3.3让被删除结点的左子树成为最小结点minNode的左子树，让被删除结点的右子树称为最小结点 minNode的右子树
             minNode.left = x.left;
             minNode.right = x.right;
             //3.4让被删除结点的父节点指向最小结点minNode
@@ -128,6 +128,33 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
         return x;
     }
 
+    //找出整个树中最小的键
+    public Key min(){
+        return min(root).key;
+    }
+
+    //找出指定树中最小的键所在的节点
+    public Node min(Node x){
+        if (x.left != null){
+            return min(x.left);
+        }else {
+            return x;
+        }
+    }
+
+    //找出整个树中最大的键
+    public Key max(){
+        return max(root).key;
+    }
+
+    //找出整个树中最大的键所在节点
+    public Node max(Node x){
+        if (x.right != null){
+            return max(x.right);
+        }else {
+            return x;
+        }
+    }
     private class Node {
         //存储键
         public Key key;
