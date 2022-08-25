@@ -1,5 +1,7 @@
 package cn.itcast.algorithm.tree;
 
+import cn.itcast.algorithm.linear.Queue;
+
 /**二叉树
  * @Author DJ
  * @Description //TODO $end$
@@ -39,7 +41,7 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
             //如果key等于x节点的键，则替换x节点的值为value
             x.value = value;
         }
-        return null;
+        return x;
     }
 
     //根据Key,从树中找出对应的值
@@ -155,6 +157,89 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
             return x;
         }
     }
+
+    //前序遍历 获取整个树中所有键
+    public Queue<Key> preErgodic(){
+        Queue<Key> keys = new Queue<>();
+        preErgodic(root,keys);
+        return keys;
+    }
+    //前序根左右
+    //使用前序遍历，将指定树x中所有键放入key队列中
+    public void preErgodic(Node x,Queue<Key> keys){
+        if (x==null){
+            return;
+        }
+        //1.把当前节点的key放到队列
+        keys.enqueue(x.key);
+        //2.找到当前节点的左子树，如果不为空，遍历递归左子树
+        if (x.left != null){
+            preErgodic(x.left,keys);
+        }
+        //3.找到当前节点右子树，如果不为空，遍历递归右子树
+        if (x.right != null){
+            preErgodic(x.right,keys);
+        }
+    }
+
+    //中序左根右
+    //中序遍历，获取树中所有键
+    public Queue<Key> midErgodic(){
+        Queue<Key> keys = new Queue<>();
+        midErgodic(root,keys);
+        return keys;
+    }
+
+    //使用中序遍历，将指定树x中所有键放入key队列中
+    public void midErgodic(Node x,Queue<Key> keys){
+        if (x==null){
+            return;
+        }
+
+        //1.找到当前节点的左子树，如果不为空，遍历递归左子树
+        if (x.left != null){
+            midErgodic(x.left,keys);
+        }
+
+        //2.把当前节点的key放到队列
+        keys.enqueue(x.key);
+
+        //3.找到当前节点右子树，如果不为空，遍历递归右子树
+        if (x.right != null){
+            midErgodic(x.right,keys);
+        }
+    }
+
+    //后序左右根
+    //后序遍历，获取树中所有键
+    public Queue<Key> afterErgodic(){
+        Queue<Key> keys = new Queue<>();
+        afterErgodic(root,keys);
+        return keys;
+    }
+
+    //使用后序遍历，将指定树x中所有键放入key队列中
+    public void afterErgodic(Node x,Queue<Key> keys){
+        if (x==null){
+            return;
+        }
+
+        //1.找到当前节点的左子树，如果不为空，遍历递归左子树
+        if (x.left != null){
+            afterErgodic(x.left,keys);
+        }
+
+        //2.找到当前节点右子树，如果不为空，遍历递归右子树
+        if (x.right != null){
+            afterErgodic(x.right,keys);
+        }
+
+        //3.把当前节点的key放到队列
+        keys.enqueue(x.key);
+
+
+    }
+
     private class Node {
         //存储键
         public Key key;
