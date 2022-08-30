@@ -245,9 +245,67 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
         //3.把当前节点的key放到队列
         keys.enqueue(x.key);
 
-
     }
 
+    //使用层序遍历，获取树种所有键
+    public Queue<Key> layerErgodic(){
+        //定义两个队列，分别存储树中的键和树中的节点
+        Queue<Key> keys = new Queue<>();
+        Queue<Node> nodes = new Queue<>();
+
+        //在队列中放入根节点
+        nodes.enqueue(root);
+
+
+        while (!nodes.isEmpty()){
+            //从nodes队列中拿出一个节点，同时将key放到keys里
+            Node n = nodes.dequeue();
+            keys.enqueue(n.key);
+
+            //判断当前节点还有没有左子节点如果有放入队列nodes中
+            if (n.left != null){
+                nodes.enqueue(n.left);
+            }
+            //判断当前节点还有没有右子节点如果有放入队列nodes中
+            if (n.right != null){
+                nodes.enqueue(n.right);
+            }
+        }
+        return keys;
+    }
+
+    //获取整个树最大深度
+    public int maxDepth(){
+        return maxDepth(root);
+    }
+
+    //获取指定树最大深度
+    public int maxDepth(Node x){
+        if (x==null){
+            return 0;
+        }
+        if (x.left == null && x.right ==null){
+            return 1;
+        }
+        //x的最大深度
+        int max = 0;
+        //左子树的最大深度
+        int maxL = 0;
+        //右子树的最大深度
+        int maxR = 0;
+
+        //计算x结点左子树最大深度
+        if(x.left != null){
+            maxL = maxDepth(x.left);
+        }
+        //计算x结点右子树最大深度
+        if (x.right != null){
+            maxR = maxDepth(x.right);
+        }
+        //比较左右子树最大深度，最大值+1
+        max = maxL>maxR?maxL+1:maxR+1;
+        return max;
+    }
     private class Node {
         //存储键
         public Key key;

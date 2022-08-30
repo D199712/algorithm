@@ -4,7 +4,7 @@ import cn.itcast.algorithm.linear.Queue;
 import cn.itcast.algorithm.tree.BinaryTree;
 
 public class BinaryTreeTest {
-    /**前序中序后序
+    /**前序中序后序层序**/
     public static void main(String[] args) throws Exception{
 
         BinaryTree<String, String> binaryTree = new BinaryTree<>();
@@ -20,11 +20,13 @@ public class BinaryTreeTest {
         Queue<String> preQueue = binaryTree.preErgodic();
         Queue<String> midQueue = binaryTree.midErgodic();
         Queue<String> afterQueue = binaryTree.afterErgodic();
-        for (String key : afterQueue){
+        Queue<String> layerQueue = binaryTree.layerErgodic();
+        for (String key : layerQueue){
             System.out.println(key+"="+binaryTree.get(key));
         }
     }
-     **/
+
+    /**
     //删除
     public static void main(String[] args) {
         BinaryTree<Integer, String> binaryTree = new BinaryTree<>();
@@ -37,4 +39,5 @@ public class BinaryTreeTest {
         binaryTree.delete(3);
         System.out.println("删除后键5对应元素："+binaryTree.get(3));
     }
+     **/
 }
