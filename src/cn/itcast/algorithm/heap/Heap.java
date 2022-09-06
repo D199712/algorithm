@@ -1,4 +1,4 @@
-package cn.itcast.algorithm;
+package cn.itcast.algorithm.heap;
 
 /**
  * 堆

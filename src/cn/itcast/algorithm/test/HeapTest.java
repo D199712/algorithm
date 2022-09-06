@@ -1,6 +1,6 @@
 package cn.itcast.algorithm.test;
 
-import cn.itcast.algorithm.Heap;
+import cn.itcast.algorithm.heap.Heap;
 
 /**
  * 堆测试
