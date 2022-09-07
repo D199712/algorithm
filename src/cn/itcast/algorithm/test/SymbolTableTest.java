@@ -1,6 +1,6 @@
 package cn.itcast.algorithm.test;
 
-import cn.itcast.algorithm.Symbol.SymbolTable;
+import cn.itcast.algorithm.symbol.SymbolTable;
 
 /**
  * 符号表

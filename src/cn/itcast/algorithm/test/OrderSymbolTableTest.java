@@ -1,6 +1,6 @@
 package cn.itcast.algorithm.test;
 
-import cn.itcast.algorithm.Symbol.OrderSymbolTable;
+import cn.itcast.algorithm.symbol.OrderSymbolTable;
 
 /**有序符号表测试
  * @Author DJ

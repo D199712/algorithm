@@ -1,4 +1,4 @@
-package cn.itcast.algorithm.Symbol;
+package cn.itcast.algorithm.symbol;
 
 /**
  * 符号表
