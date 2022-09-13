@@ -27,7 +27,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
 
     //判断堆中索引i处的元素是否小于索引j处的元素
     private boolean less(int i,int j){
-        return items[i].compareTo(items[j])<0;
+        return items[i].compareTo(items[j]) < 0;
     }
 
     //交换堆中i索引和j索引处的值
@@ -43,7 +43,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
         exch(1,N);
         items[N] = null;
         N--;
-        sink(N);
+        sink(1);
         return max;
     }
 
