@@ -70,7 +70,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
     private void sink(int k){
         //循环让当前节点k的左子结点2*k,右子节点2*k+1比较，若当前节点k数值小,交换位置
         while (2*k <= N){
-            //毕竟左右子节点大小，存储最大值索引
+            //比较左右子节点大小，存储最大值索引
             int max;
             //如果存在右子节点
             if (2*k+1 < N){
