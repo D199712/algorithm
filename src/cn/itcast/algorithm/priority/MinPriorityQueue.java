@@ -61,7 +61,7 @@ public class MinPriorityQueue<T extends Comparable<T>> {
     private void swim(int k){
         //上浮到根节点停止上浮
         while (k > 1){
-            //判断子节点是否小于父节点，小于父节点则交换值
+            //循环判断子节点是否小于父节点，小于父节点则交换值
             if (less(k,k/2)){
                 exch(k,k/2);
             }
@@ -90,7 +90,7 @@ public class MinPriorityQueue<T extends Comparable<T>> {
              * 比较子节点最小值与父节点,如果子节点最小值大于父节点，说明当前索引k处的元素处在正确位置，直接跳出循环
              *如果子节点最小值小于父节点，则说明前索引k处的元素处不在正确位置，交换位置，继续循环
              */
-            if (!less(k,min)){
+            if (less(k,min)){
                 break;
             }
             exch(k,min);

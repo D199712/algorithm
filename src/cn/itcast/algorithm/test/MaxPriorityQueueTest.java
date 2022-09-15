@@ -7,7 +7,6 @@ import cn.itcast.algorithm.priority.MaxPriorityQueue;
  */
 public class MaxPriorityQueueTest {
     public static void main(String[] args) {
-        String[] arr = {"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
         MaxPriorityQueue<String> queue = new MaxPriorityQueue<>(10);
         queue.insert("A");
         queue.insert("B");
