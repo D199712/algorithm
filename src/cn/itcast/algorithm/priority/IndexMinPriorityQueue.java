@@ -58,8 +58,21 @@ public class IndexMinPriorityQueue<T extends Comparable<T>> {
 
     //删除队列中最小元素，并返回该元素关联的索引
     public int delMin(){
-
-      return -1;
+        //获取item最小元素关联的索引
+        int minIndex = pq[1];
+        //交换pq中索引1处与最大索引的元素
+        exch(1,N);
+        //删除qp中对应的内容
+        qp[pq[N]] = -1;
+        //删除pq最大索引处的内容
+        pq[N] = -1;
+        //删除item中对应的内容
+        items[minIndex] = null;
+        //元素个数-1
+        N--;
+        //下沉调整
+        sink(1);
+      return minIndex;
     }
 
     //往队列中插入一个元素，并返回该元素关联的索引
@@ -82,12 +95,33 @@ public class IndexMinPriorityQueue<T extends Comparable<T>> {
 
     //使用上浮算法，使索引k处的元素能在堆中处于一个正确的位置
     private void swim(int k){
-
+        //循环到根节点
+        while (k > 1){
+            //父子节点相比较，如果子节点小于父节点则交换位置
+            if (less(k,k/2)){
+                exch(k,k/2);
+            }
+            k = k/2;
+        }
     }
 
     //使用下沉算法，使索引k处的元素能在堆中处于一个正确的位置
     private void sink(int k){
+        //下沉 直到 没有子节点
+        while (2*k <= N){
+            //设置最小值索引，默认左子结点
+            int min = 2*k;
+            //当存在右子节点且左右子节点比较右子节点小于左子节点，最小值索引更换为右子节点
+            if (2*k+1 <= N && less(2*k+1,2*k)){
+                min = 2*k+1;
+            }
 
+            //如果k节点值小于子节点中较小节点值，跳出循环
+            if (less(k,min)){
+                break;
+            }
+            k = min;
+        }
     }
 
     //判断k对应元素是否存在
@@ -98,7 +132,14 @@ public class IndexMinPriorityQueue<T extends Comparable<T>> {
 
     //把与索引i关联的元素修改为t
     public void changeItem(int i,T t){
-
+        //修改items数组中索引i处值为t
+        items[i] = t;
+        //找到i在pq中的位置
+        int k = qp[i];
+        //对pq[k]做下沉，让堆有序
+        sink(k);
+        //对pq[k]做上浮，让堆有序
+        swim(k);
     }
 
     //最小元素关联的索引
@@ -109,6 +150,21 @@ public class IndexMinPriorityQueue<T extends Comparable<T>> {
 
     //删除索引i关联的元素
     public void delete(int i){
-
+        //找到i在pq中的索引
+        int k = qp[i];
+        //交换pq中k索引处的值和最大索引N处的值
+        exch(k,N);
+        //删除qp中索引pq[N]处元素
+        qp[pq[N]] = -1;
+        //删除pq中索引N处的值
+        pq[N] = -1;
+        //删除items中索引i处的值
+        items[i] = null;
+        //元素数量-1
+        N--;
+        //对pq[k]下沉，让堆有序
+        sink(k);
+        //对pq[k]上浮，让堆有序
+        swim(k);
     }
 }
