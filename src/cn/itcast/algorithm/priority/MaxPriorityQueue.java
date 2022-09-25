@@ -55,11 +55,11 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
 
     //使用上浮算法，使索引k处的元素能在堆中处于一个正确的位置
     private void swim(int k){
-        //如果已经到了根结点，就不需要循环了
+        //如果已经到了根节点，就不需要循环了
         while (k > 1){
-            //比较当前结点和其父结点
+            //比较当前节点和其父节点
             if (less(k/2,k)){
-                //父结点小于当前结点，需要交换
+                //父节点小于当前节点，需要交换
                 exch(k/2,k);
             }
             k = k/2;
@@ -68,7 +68,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
 
     //使用下沉算法，使索引k处的元素能在堆中处于一个正确的位置
     private void sink(int k){
-        //循环让当前节点k的左子结点2*k,右子节点2*k+1比较，若当前节点k数值小,交换位置
+        //循环让当前节点k的左子节点2*k,右子节点2*k+1比较，若当前节点k数值小,交换位置
         while (2*k <= N){
             //比较左右子节点大小，存储最大值索引
             int max;
@@ -79,7 +79,7 @@ public class MaxPriorityQueue<T extends Comparable<T>> {
                 }else {
                     max = 2*k;
                 }
-            }else {//如果没有右子节点,直接让max=左子结点索引
+            }else {//如果没有右子节点,直接让max=左子节点索引
                 max = 2*k;
             }
             //将父节点与左右子节点最大值比较,如果父节点没有max对应节点大，不用互换

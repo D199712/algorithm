@@ -49,10 +49,10 @@ public class Heap<T extends Comparable<T>> {
 
     //使用上浮算法，使索引k处的元素能在堆中处于一个正确的位置
     private void swim(int k){
-        //如果已经到了根结点，就不需要循环了
+        //如果已经到了根节点，就不需要循环了
         while(k>1){
             if(less(k/2,k)){
-                //父结点小于当前结点，需要交换
+                //父节点小于当前节点，需要交换
                 exch(k/2,k);
             }
             k = k/2;

@@ -109,7 +109,7 @@ public class IndexMinPriorityQueue<T extends Comparable<T>> {
     private void sink(int k){
         //下沉 直到 没有子节点
         while (2*k <= N){
-            //设置最小值索引，默认左子结点
+            //设置最小值索引，默认左子节点
             int min = 2*k;
             //当存在右子节点且左右子节点比较右子节点小于左子节点，最小值索引更换为右子节点
             if (2*k+1 <= N && less(2*k+1,2*k)){

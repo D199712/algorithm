@@ -9,7 +9,7 @@ import cn.itcast.algorithm.linear.Queue;
  * @return $return$
  */
 public class BinaryTree<Key extends Comparable<Key>, Value>{
-    //记录根结点
+    //记录根节点
     private Node root;
     //记录树中元素的个数
     private int N;
@@ -85,34 +85,34 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
 
         int cmp = key.compareTo(x.key);
         if (cmp > 0){
-            //待删除结点的key大于当前结点的key，继续找当前结点的右子结点
+            //待删除节点的key大于当前节点的key，继续找当前节点的右子节点
             x.right = delete(x.right,key);
         }else if (cmp < 0){
-            //待删除结点的key小于当前结点的key，继续找当前结点的左子结点
+            //待删除节点的key小于当前节点的key，继续找当前节点的左子节点
             x.left = delete(x.left,key);
         }else {
-            //新结点的key等于当前结点的key,当前x就是要删除的结点
-            // 1.如果当前结点的右子树不存在，则直接返回当前结点的左子结点
+            //新节点的key等于当前节点的key,当前x就是要删除的节点
+            // 1.如果当前节点的右子树不存在，则直接返回当前节点的左子节点
             if (x.right == null){
                 return x.left;
             }
 
-            // 2.如果当前结点的左子树不存在，则直接返回当前结点的右子结点
+            // 2.如果当前节点的左子树不存在，则直接返回当前节点的右子节点
             if (x.left == null){
                 return x.right;
             }
 
-            //3.当前结点的左右子树都存在
-            //3.1找到右子树中最小的结点
+            //3.当前节点的左右子树都存在
+            //3.1找到右子树中最小的节点
             Node minNode = x.right;
             while (minNode.left != null){
                 minNode = minNode.left;
             }
 
-            //3.2删除右子树中最小的结点
+            //3.2删除右子树中最小的节点
             Node n = x.right;
             while (n.left != null){
-                //孙节点为空，当前节点左子节点设为左子结点的右子节点（防止节点丢失），不为空则用左子节点继续循环
+                //孙节点为空，当前节点左子节点设为左子节点的右子节点（防止节点丢失），不为空则用左子节点继续循环
                 if (n.left.left == null){
                     n.left = n.left.right;
                 }else {
@@ -120,14 +120,14 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
                 }
             }
 
-            //3.3让被删除结点的左子树成为最小结点minNode的左子树，让被删除结点的右子树成为最小结点minNode的右子树
+            //3.3让被删除节点的左子树成为最小节点minNode的左子树，让被删除节点的右子树成为最小节点minNode的右子树
             minNode.left = x.left;
             if (minNode == x.right){
                 minNode.right = x.right.right;
             }else {
                 minNode.right = x.right;
             }
-            //3.4让被删除结点的父节点指向最小结点minNode
+            //3.4让被删除节点的父节点指向最小节点minNode
            if (x == root){
                root = minNode;
            }else {
@@ -294,11 +294,11 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
         //右子树的最大深度
         int maxR = 0;
 
-        //计算x结点左子树最大深度
+        //计算x节点左子树最大深度
         if(x.left != null){
             maxL = maxDepth(x.left);
         }
-        //计算x结点右子树最大深度
+        //计算x节点右子树最大深度
         if (x.right != null){
             maxR = maxDepth(x.right);
         }
@@ -311,9 +311,9 @@ public class BinaryTree<Key extends Comparable<Key>, Value>{
         public Key key;
         //存储值
         private Value value;
-        //记录左子结点
+        //记录左子节点
         public Node left;
-        //记录右子结点
+        //记录右子节点
         public Node right;
 
         public Node(Key key, Value value, Node left, Node right) {
