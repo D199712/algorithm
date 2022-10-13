@@ -33,7 +33,7 @@ public class UF_Tree {
         return -1;
     }
 
-    //把p元素所在分组和q元素所在分组合并
+    //把p元素所在分组和q元素所在分组合并DJdj19971512VPN
     public void unio(int p,int q){
 
     }
