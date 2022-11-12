@@ -1,20 +1,27 @@
 package cn.itcast.algorithm.UF;
 
-/**
- *
- */
-public class UF_Tree {
-    //记录节点元素或者该元素父节点
+public class UF_Tree_Weighted {
+
+    //记录结点元素和该元素的父结点
     private int[] eleAndGroup;
-    //获取当前并查集中的数据有多少个分组
+
+    //存储每个根结点对应的树中元素的个数
+    private int[] sz;
+
+    //记录并查集中数据的分组个数
     private int count;
 
-    public UF_Tree(int N){
-        this.count = N;
+    public UF_Tree_Weighted(int N){
         this.eleAndGroup = new int[N];
+        this.count = N;
+        this.sz = new int[N];
 
-        for (int i = 0; i < N;i++){
+        for (int i = 0; i < eleAndGroup.length; i++) {
             eleAndGroup[i] = i;
+        }
+
+        for (int i = 0; i < sz.length; i++) {
+            sz[i] = 1;
         }
     }
 
@@ -30,29 +37,35 @@ public class UF_Tree {
 
     //元素p所在分组的标识符
     public int find(int p){
+
         while (true){
             if (p == eleAndGroup[p]){
                 return p;
             }
-            p =  eleAndGroup[p];
+            p = eleAndGroup[p];
         }
     }
 
     //把p元素所在分组和q元素所在分组合并
     public void union(int p,int q){
-        //找到p和q的根节点
+
         int pRoot = find(p);
         int qRoot = find(q);
 
-        //如果p和q已经在同一分组中，则无需合并
+        //判断是否在同一分组
         if (pRoot == qRoot){
             return;
         }
 
-        //让p所在树根节点的父节点等于q的父节点
-        eleAndGroup[p] = qRoot;
-
-        //组的数量-1
+        //判断pRoot和qRoot谁对应树更高，把低的树合并到高的树
+        if (sz[pRoot] > sz[qRoot]){
+            eleAndGroup[qRoot] = pRoot;
+            sz[pRoot] += sz[qRoot];
+        }else {
+            eleAndGroup[pRoot] = qRoot;
+            sz[qRoot] += sz[pRoot];
+        }
+        
         this.count--;
     }
 }
