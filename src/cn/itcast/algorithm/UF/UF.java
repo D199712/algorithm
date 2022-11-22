@@ -1,7 +1,11 @@
 package cn.itcast.algorithm.UF;
 
 /**
- *
+ *并查集
+ * 1.每个元素都有唯一的对应一个节点
+ * 2.每一组数据的多个元素都在同一棵树中
+ * 3.一个组中的数据对应的树和另一个组中的数据对应的树之间没有任何联系
+ * 4.元素在树中没有子父级关系的硬件要求
  */
 public class UF {
     //记录结点元素和该元素所在分组的标识
@@ -10,17 +14,17 @@ public class UF {
     private int count;
 
     public UF(int N){
-        //初始情况下，每个元素都在一个独立的分组中，所以初始情况下，并查集中的数据分为N个组
+        //1、初始情况下，每个元素都在一个独立的分组中，所以初始情况下，并查集中的数据分为N个组
         this.count = N;
-        //初始化数组
+        //2、初始化数组
         eleAndGroup = new int[N];
-        /*把eleAndGroup数组的索引看作是每个节点存储的元素，把eleAndGroup数组每个
+        /*3、把eleAndGroup数组的索引看作是每个节点存储的元素，把eleAndGroup数组每个
         *索引处值看作是该节点所在的分组，那么初始化情况下，i索引处存储的值就是i
         **/
         for (int i = 0; i < N; i++) {
             eleAndGroup[i] = i;
         }
-    }
+    }。
 
     //获取当前并查集中的数据有多少个分组
     public int count(){

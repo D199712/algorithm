@@ -6,4 +6,5 @@ package cn.itcast.algorithm.test;
  * @Author DJ
  **/
 public class UF_Tree_WeightedTest {
+
 }

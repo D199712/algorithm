@@ -29,6 +29,9 @@ public class UF_Tree {
     }
 
     //元素p所在分组的标识符
+    /**1.判断当前元素p的父节点eleAndGroup[p]是不是自己，如果是自己则说明已经是根节点了
+     * 2.如果当前元素p的父节点不是自己，则让p=eleAndGroup[p],继续寻找父节点的父节点，直到找到根节点为止
+     **/
     public int find(int p){
         while (true){
             if (p == eleAndGroup[p]){
