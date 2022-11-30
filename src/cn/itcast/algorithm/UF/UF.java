@@ -24,7 +24,7 @@ public class UF {
         for (int i = 0; i < N; i++) {
             eleAndGroup[i] = i;
         }
-    }。
+    }
 
     //获取当前并查集中的数据有多少个分组
     public int count(){

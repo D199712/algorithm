@@ -1,5 +1,9 @@
 package cn.itcast.algorithm.UF;
 
+/**
+ * 路径压缩
+ * 把并查集中每一棵树大小记录下来，在每次合并树的时候，把较小的树连接到较大的树上，减小树的深度
+ */
 public class UF_Tree_Weighted {
 
     //记录结点元素和该元素的父结点
@@ -20,6 +24,7 @@ public class UF_Tree_Weighted {
             eleAndGroup[i] = i;
         }
 
+        //默认情况下，每个节点都是一个独立的树，每个树中只有一个元素
         for (int i = 0; i < sz.length; i++) {
             sz[i] = 1;
         }
@@ -52,7 +57,7 @@ public class UF_Tree_Weighted {
         int pRoot = find(p);
         int qRoot = find(q);
 
-        //判断是否在同一分组
+        //判断是否在同一分组，在同一组不需要合并
         if (pRoot == qRoot){
             return;
         }
