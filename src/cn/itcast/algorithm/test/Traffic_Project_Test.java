@@ -22,16 +22,16 @@ import java.io.InputStreamReader;
 public class Traffic_Project_Test {
     public static void main(String[] args) throws Exception{
         //创建一个缓冲读取流BufferedReader
-        BufferedReader reader = new BufferedReader(new InputStreamReader(Traffic_Project_Test.class.getClassLoader().getResourceAsStream("traffic_project.txt")));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Traffic_Project_Test.class.getClassLoader().getResourceAsStream("traffic_project.txt")));
         //读取第一行数据20
-        int totalNumber = Integer.parseInt(reader.readLine());
+        int totalNumber = Integer.parseInt(bufferedReader.readLine());
         //构建一个并查集对象
         UF_Tree_Weighted uf = new UF_Tree_Weighted(totalNumber);
         //读取第二行数据7
-        int roadNumber = Integer.parseInt(reader.readLine());
+        int roadNumber = Integer.parseInt(bufferedReader.readLine());
         //循环读取7条道路
         for (int i = 0; i < roadNumber; i++){
-            String line = reader.readLine();
+            String line = bufferedReader.readLine();
             int p = Integer.parseInt(line.split(" ")[0]);
             int q = Integer.parseInt(line.split(" ")[1]);
             //调用并查集对象的union方法让两个城市相通
