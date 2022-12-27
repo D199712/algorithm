@@ -3,7 +3,7 @@ package cn.itcast.algorithm.graph;
 import cn.itcast.algorithm.linear.Queue;
 
 /**
- * @Description
+ * @Description 无向图
  * @Date 2022/12/27 23:52
  * @Author DJ
  **/
